@@ -79,6 +79,7 @@ func configRoute(r *gin.Engine, version string, reloadFunc func()) {
 	r.POST("/datadog/api/v1/metadata", datadogMetadata)
 	r.POST("/datadog/intake/", datadogIntake)
 
+	// TODO replace global auth with project token
 	if len(config.C.BasicAuth) > 0 {
 		auth := gin.BasicAuth(config.C.BasicAuth)
 		r.Use(auth)
