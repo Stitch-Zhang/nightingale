@@ -93,6 +93,8 @@ func extractIdentFromTimeSeries(s *prompb.TimeSeries) string {
 }
 
 func remoteWrite(c *gin.Context) {
+	//TODO replace global basic auth with project token
+
 	req, err := DecodeWriteRequest(c.Request.Body)
 	if err != nil {
 		c.String(http.StatusBadRequest, err.Error())
